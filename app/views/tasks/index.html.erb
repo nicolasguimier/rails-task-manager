@@ -1,0 +1,13 @@
+<h1>All tasks</h1>
+<% if @tasks.empty? %>
+  <p>
+    Sorry, no task for now.
+  </p>
+<% else %>
+  <ul id="task-list">
+  <% @tasks.each do |task| %>
+    <li><%= task.completed %> - <%= link_to task.title, task_path(task) %></li>
+  <% end %>
+  </ul>
+<% end %>
+<p><%= link_to "Add a new tast", new_task_path %></p>
